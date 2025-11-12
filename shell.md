@@ -64,3 +64,6 @@ Explanation:
 
 * Confirms that the disk is mounted and shows the mount point.
 * Ensures you know where to access your files (e.g., /mnt).
+
+### Generate project changelog by git commits
+[gclog.sh](https://github.com/Leonardofreua/my-snippets/blob/main/gclog.sh)
