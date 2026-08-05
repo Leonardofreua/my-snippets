@@ -9,3 +9,9 @@ docker ps -a --filter ancestor=postgres:14 --format "{{.ID}}" | xargs -r docker 
 ```bash
 docker compose down -v --rmi all && docker compose up --build -d
 ```
+
+### List all container and their IP address
+
+```bash
+docker ps --format "{{.Names}}: {{.ID}}" | while read line; do name=$(echo $line | cut -d: -f1); id=$(echo $line | cut -d: -f2 | xargs); ip=$(docker inspect $id --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 2v/dev/null); echo "$ip -> $name"; done 2>/dev/null | sort
+```
